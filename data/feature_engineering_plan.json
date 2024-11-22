@@ -1,0 +1,7 @@
+{
+    "MSZoning": {
+        "imputer": null,
+        "scaler": null,
+        "encoder": "OneHotEncoder"
+    }
+}
