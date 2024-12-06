@@ -1,7 +1,151 @@
 {
     "MSZoning": {
+        "imputer": {
+            "strategy": "most_frequent"
+        },
+        "encoder": "OneHotEncoder"
+    },
+    "LotFrontage": {
+        "imputer": {
+            "strategy": "group_based",
+            "by": "Neighborhood",
+            "fallback_strategy": "median"
+        },
+        "custom_transform": [
+            "log_transform",
+            "cap_outliers"
+        ]
+    },
+    "MSSubClass": {
+        "imputer": {
+            "strategy": "most_frequent"
+        },
+        "encoder": "OneHotEncoder"
+    },
+    "LotArea": {
+        "imputer": {
+            "strategy": "group_based",
+            "by": "Neighborhood",
+            "fallback_strategy": "median"
+        },
+        "custom_transform": [
+            "yeo_johnson_transform",
+            "cap_outliers"
+        ]
+    },
+    "Street": {
+        "imputer": {
+            "strategy": "constant",
+            "fill_value": "Pave"
+        },
+        "encoder": "BinaryEncoder"
+    },
+    "Alley": {
+        "imputer": {
+            "strategy": "constant",
+            "fill_value": "NA"
+        },
+        "encoder": "LabelEncoder",
+        "custom_transform": "binary_indicator",
+        "binary_indicator_feature": "has_alley"
+    },
+    "LotShape": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "OneHotEncoder"
+    },
+    "LandContour": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "OneHotEncoder"
+    },
+    "Utilities": {
         "imputer": null,
         "scaler": null,
         "encoder": "OneHotEncoder"
+    },
+    "LotConfig": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "OneHotEncoder"
+    },
+    "LandSlope": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "OneHotEncoder"
+    },
+    "Neighborhood": {
+        "imputer": "median",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "Condition1": {
+        "imputer": {
+            "strategy": "most_frequent"
+        },
+        "encoder": "OneHotEncoder"
+    },
+    "Condition2": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "BldgType": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "HouseStyle": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "OverallQual": {
+        "imputer": "median",
+        "scaler": null,
+        "encoder": "OrdinalEncoder"
+    },
+    "OverallCond": {
+        "imputer": "median",
+        "scaler": null,
+        "encoder": "OrdinalEncoder"
+    },
+    "YearBuilt": {
+        "imputer": {
+            "strategy": "group_based",
+            "by": "Neighborhood",
+            "fallback_strategy": "median"
+        },
+        "custom_transform": "replace_with_age"
+    },
+    "YearRemodAdd": {
+        "imputer": null,
+        "scaler": null,
+        "encoder": null
+    },
+    "RoofStyle": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "RoofMatl": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "Exterior1st": {
+        "imputer": "median",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "Exterior2nd": {
+        "imputer": "mode",
+        "scaler": null,
+        "encoder": "LabelEncoder"
+    },
+    "MasVnrType": {
+        "imputer": "constant",
+        "scaler": null,
+        "encoder": "LabelEncoder"
     }
 }
